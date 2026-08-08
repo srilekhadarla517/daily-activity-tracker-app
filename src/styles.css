@@ -132,13 +132,148 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+:root {
+  --surface: oklch(0.975 0.006 250);
+  --success: oklch(0.63 0.17 145);
+  --warning: oklch(0.76 0.17 62);
+  --danger: oklch(0.58 0.21 27);
+  --neutral: oklch(0.56 0.02 256);
+  --purple: oklch(0.47 0.2 292);
+  --info: oklch(0.56 0.22 262);
+  --slate: oklch(0.37 0.04 250);
+  --on-accent: oklch(0.99 0 0);
+  --shadow-card: 0 10px 30px -18px oklch(0.37 0.04 250 / 0.45);
+}
+
+.dark {
+  --surface: oklch(0.16 0.03 264);
+  --shadow-card: 0 10px 30px -18px oklch(0 0 0 / 0.7);
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-neutral: var(--neutral);
+  --color-purple: var(--purple);
+  --color-info: var(--info);
+  --color-slate: var(--slate);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: var(--color-surface);
     color: var(--color-foreground);
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
   }
 }
+
+@utility card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+@utility field {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-input);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: var(--info);
+  }
+}
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: var(--radius-md);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--on-accent);
+  transition:
+    filter 0.18s ease,
+    transform 0.18s ease;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility btn-success {
+  @apply btn-base;
+  background-color: var(--success);
+}
+
+@utility btn-warning {
+  @apply btn-base;
+  background-color: var(--warning);
+  padding: 0.4rem 0.7rem;
+}
+
+@utility btn-danger {
+  @apply btn-base;
+  background-color: var(--danger);
+  padding: 0.4rem 0.7rem;
+}
+
+@utility btn-neutral {
+  @apply btn-base;
+  background-color: var(--neutral);
+}
+
+@utility btn-purple {
+  @apply btn-base;
+  background-color: var(--purple);
+}
+
+@utility btn-info {
+  @apply btn-base;
+  background-color: var(--info);
+}
+
+@utility btn-slate {
+  @apply btn-base;
+  background-color: var(--slate);
+}
+
+@utility btn-info-outline {
+  @apply btn-base;
+  background-color: transparent;
+  color: var(--info);
+  border: 1px solid var(--info);
+}
+
+@utility badge-time {
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--info) 14%, transparent);
+  color: var(--info);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
