@@ -15,7 +15,7 @@ export type Task = {
   time: string; // HH:MM
   sound: SoundKey;
   done: boolean;
-  notifiedOn?: string; // YYYY-MM-DD HH:MM already fired
+  notifiedOn?: string | undefined; // YYYY-MM-DD HH:MM already fired
 };
 
 export const SOUNDS: { key: SoundKey; label: string }[] = [
