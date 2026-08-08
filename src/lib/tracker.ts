@@ -100,7 +100,9 @@ export function notify(title: string, body: string) {
 }
 
 export function formatTime(hhmm: string) {
-  const [h, m] = hhmm.split(":").map(Number);
+  const parts = hhmm.split(":").map(Number);
+  const h = parts[0] ?? NaN;
+  const m = parts[1] ?? NaN;
   if (Number.isNaN(h) || Number.isNaN(m)) return hhmm;
   const suffix = h >= 12 ? "PM" : "AM";
   const hour = h % 12 === 0 ? 12 : h % 12;
