@@ -157,7 +157,7 @@ function Index() {
             </h1>
             {user && (
               <p className="mt-1 text-sm text-muted-foreground">
-                {user.profession} · {user.qualification} · {user.age} yrs
+                {[user.profession, user.qualification, user.age ? `${user.age} yrs` : ""].filter(Boolean).join(" · ")}
               </p>
             )}
           </div>
