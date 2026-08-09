@@ -59,7 +59,7 @@ Key Features & Specifications:
    - Include manifest.json and sw.js configuration so the app can be installed as 
 
 a Progressive Web App (PWA).
-
+https://cozy-day-doer.lovable.app
 ## Development
 
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
