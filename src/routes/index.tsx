@@ -265,9 +265,7 @@ function Index() {
             <button
               type="button"
               className="btn-purple"
-              onClick={() =>
-                setTasks((prev) => prev.map((t) => ({ ...t, done: false, notifiedOn: undefined })))
-              }
+              onClick={() => setTasks((prev) => prev.map((t) => ({ ...t, done: false })))}
             >
               Reset for Today
             </button>
